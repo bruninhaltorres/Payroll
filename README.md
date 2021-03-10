@@ -1,7 +1,5 @@
 # Projeto_De_Software
 
-<div style="text-align: justify">
-
 ### Objetivo:
 O objetivo do projeto é construir um sistema de **folha de pagamento. O sistema consiste do
 gerenciamento de pagamentos dos empregados de uma empresa. Além disso, o sistema deve
@@ -36,4 +34,4 @@ pagamento para cada empregado desde a última vez em que este foi pago.
 
 ### Mais especificações:
 
-[Clique aqui](https://github.com/bruninhaltorres/Projeto_De_Software/blob/main/Folha_de_Pagamento.pdf) para ver mais sobre o projeto.
+[Clique aqui](https://github.com/bruninhaltorres/Projeto_De_Software/tree/main/Especifica%C3%A7%C3%B5es) para ver mais sobre o projeto.
