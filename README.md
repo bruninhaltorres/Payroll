@@ -17,7 +17,7 @@ percentual das vendas que realizam. Eles submetem resultados de vendas que infor
 data e valor da venda. O percentual de comissão varia de empregado para empregado. Eles
 são pagos a cada 2 sextas-feiras; neste momento, devem receber o equivalente de 2 semanas
 de salário fixo mais as comissões do período.
-⋅⋅* Empregados podem escolher o método de pagamento.
+⋅⋅*Empregados podem escolher o método de pagamento.
 ⋅⋅* Podem receber um cheque pelos correios
 ⋅⋅* Podem receber um cheque em mãos
 ⋅⋅* Podem pedir depósito em conta bancária
