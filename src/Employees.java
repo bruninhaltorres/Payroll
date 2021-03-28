@@ -1,8 +1,8 @@
 package src;
 
 public class Employees {
-    String name;
-    String cpf;
-    String methodPayment;
-    Double salary;
+    public String name;
+    public String cpf;
+    public String methodPayment;
+    public double salary;
 }

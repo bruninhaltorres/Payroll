@@ -1,3 +1,5 @@
-public class Commissioned {
-    Double committee;
+package src;
+
+public class Commissioned extends Employees {
+    public double committee;
 }

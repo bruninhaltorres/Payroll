@@ -1,3 +1,5 @@
-public class Hourly {
-    Integer hoursWorked;
+package src;
+
+public class Hourly extends Employees {
+    public int hoursWorked;
 }
