@@ -1,4 +1,4 @@
-package src;
+package src.payment;
 
 public class CheckMail extends Payment {
     public String recipient; // Destinatario

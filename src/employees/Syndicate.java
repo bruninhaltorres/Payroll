@@ -1,4 +1,4 @@
-package src;
+package src.employees;
 
 public class Syndicate extends Employees {
     public int id;
