@@ -1,4 +1,5 @@
 import src.employees.Employees;
+import src.employees.Syndicate;
 import java.util.Scanner;
 import java.lang.String;
 import java.util.Random;
@@ -23,11 +24,20 @@ public class Main {
 
         int comando = input.nextInt();
 
+        Employees employees = new Employees(500);
+        //Syndicate syndicate = new Syndicate(500);
+
         while (comando != 0){
             if (comando == 1) {
-                System.out.println("Adicionando empregado..."); 
-                Employees employees = new Employees(500);
+                System.out.println("Adicionando empregado:"); 
                 employees.add();
+                //System.out.println("Esse empregado irá fazer parte do Sindicato?\n1 - Sim\n2 - Não\n");
+                /*int isSyndicate = input.nextInt();
+                if(isSyndicate == 1) {
+                    Syndicate add_syndicate = new Syndicate(name, adress, method, id); // resolver como passar essas variaveis??
+                } else {
+                    System.out.println("Okay.\n");
+                }*/
             } else if (comando == 2) {
                 //remove();
                 System.out.println("Removendo empregado..."); 
@@ -63,6 +73,7 @@ public class Main {
                 System.out.println("10 - Criar novas agendas");
                 System.out.println("0 - Encerrar");
             }
+            input.nextLine();
         }
         input.close();
     }

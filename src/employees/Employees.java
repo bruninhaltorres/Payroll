@@ -11,8 +11,8 @@ public class Employees {
     protected double salary;
     protected int id;
     private static Employees employeeList[]; // Fixa para todos os empregados. Por exemplo, se for uma classe referente a carros e a variavel static se referir a marca dos pneus, todos os carros terão pneus da mesma marca.
-    
-    public Employees(int count) { // construtor 1
+
+    public Employees(int count) { // construtor 1 : Para juntar todos os empregados em uma lista.
         Employees.employeeList = new Employees[count];
     }
 
@@ -43,6 +43,7 @@ public class Employees {
             id = random.nextInt(500);
         }
         this.id = id;
+        //System.out.println(this.id);
     }
 
     public void add(){
@@ -65,7 +66,7 @@ public class Employees {
         this.generate_id();
     
         // ---- TIPO EMPREGADO ----
-        System.out.println("O empregado é horista(1) ou assalariado(2)?");
+        System.out.println("O empregado é horista?\n1 - Sim\n2 - Não");
         int type = input.nextInt();
         
         if (type == 1) { // horista
@@ -76,7 +77,7 @@ public class Employees {
             comissioned = input.nextInt();
         }
     System.out.println("Empregado adicionado com sucesso!");
-    System.out.println(employeeList[id].toString()); // sem o to.string só printaria o tipo da lista.
-    input.close();
+    System.out.println(employeeList[id].name);
+    //System.out.println(id);
     }
 }
