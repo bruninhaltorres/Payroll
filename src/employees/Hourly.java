@@ -6,7 +6,7 @@ import src.TimeCard;
 public class Hourly extends Employees {
     private ArrayList<TimeCard> list_timeCards = new ArrayList<TimeCard>(); // cria uma lista dinâmica e não um array fixo que vai armazenas o cartão de ponto de todos os horistas.
 
-    public Hourly(String name, String adress, int method, int id) {
+    public Hourly(String name, String adress, String method, int id) {
         super(name, adress, method, id);// chama o construtor da classe pai.
     }
 

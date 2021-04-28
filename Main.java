@@ -1,10 +1,40 @@
 import src.employees.Employees;
 import src.employees.Syndicate;
+import src.employees.Hourly;
+import src.employees.Syndicate;
+
 import java.util.Scanner;
 import java.lang.String;
 import java.util.Random;
+import java.util.ArrayList;
+
 
 public class Main {
+
+    public static int generateId(ArrayList<Employees> employeeList) {
+        Random random = new Random();
+        int id, qntEmployees = employeeList.size(); // quantos empregados já foram cadastrados.
+        id = random.nextInt(30);
+        for (int i = 0; i < qntEmployees; i++){
+            if (id == employeeList.get(i).getId()){
+                id = random.nextInt(30);
+                i = 0; // verificar lista toda do começo garantindo a não repetição do novo id.
+            }
+        }
+        return id;
+    }
+    public static int generateIdSyndicate(ArrayList<Syndicate> syndicateList) {
+        Random random = new Random();
+        int id, qntEmployees = syndicateList.size(); // quantos empregados já foram cadastrados.
+        id = random.nextInt(30);
+        for (int i = 0; i < qntEmployees; i++){
+            if (id == syndicateList.get(i).getIdSyndicate()){
+                id = random.nextInt(30);
+                i = 0; // verificar lista toda do começo garantindo a não repetição do novo id.
+            }
+        }
+        return id;
+    }
     public static void main(String[] args) {
         System.out.println("Esse é o sistema para folha de pagamento.");    
         Scanner input = new Scanner(System.in);
@@ -24,20 +54,44 @@ public class Main {
 
         int comando = input.nextInt();
 
-        Employees employees = new Employees(500);
-        //Syndicate syndicate = new Syndicate(500);
+        ArrayList<Employees> listEmployess = new ArrayList<Employees>(); 
+        ArrayList<Syndicate> listSyndicate = new ArrayList<Syndicate>(); 
 
         while (comando != 0){
             if (comando == 1) {
                 System.out.println("Adicionando empregado:"); 
+
+                int idEmployee = generateId(listEmployess);
+
+                Employees employees = new Employees(idEmployee);
                 employees.add();
-                //System.out.println("Esse empregado irá fazer parte do Sindicato?\n1 - Sim\n2 - Não\n");
-                /*int isSyndicate = input.nextInt();
+
+                System.out.println("O empregado é...\n1 - Horista\n2 - Comissionado");
+                int type = input.nextInt();
+                
+                if (type == 1) { // horista
+                    employees = new Hourly(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId());
+                } if (type == 2) {
+                    /*int comissioned;
+                    System.out.println("O empregado é comissionado?\n1 - Sim\n2 - Não");
+                    comissioned = input.nextInt();*/
+                }
+                if(employees.getClass() == Hourly.class){
+                    System.out.println("Horista");
+                }
+                listEmployess.add(employees);
+
+                System.out.println("Ele irá fazer parte do Sindicato?\n1 - Sim\n2 - Não");
+                int isSyndicate = input.nextInt();
                 if(isSyndicate == 1) {
-                    Syndicate add_syndicate = new Syndicate(name, adress, method, id); // resolver como passar essas variaveis??
+                    int idSyndicate = generateIdSyndicate(listSyndicate);
+                    Syndicate syndicate = new Syndicate(idSyndicate);
+                    syndicate.add(idEmployee);
+                    listSyndicate.add(syndicate);
+                    // Syndicate add_syndicate = new Syndicate(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId()); // como usar o array de empregados aqui?
                 } else {
                     System.out.println("Okay.\n");
-                }*/
+                }
             } else if (comando == 2) {
                 //remove();
                 System.out.println("Removendo empregado..."); 
