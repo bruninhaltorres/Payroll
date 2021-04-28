@@ -1,12 +1,15 @@
+import src.employees.Commissioned;
 import src.employees.Employees;
 import src.employees.Syndicate;
 import src.employees.Hourly;
 import src.employees.Syndicate;
+import src.TimeCard;
 
 import java.util.Scanner;
 import java.lang.String;
 import java.util.Random;
 import java.util.ArrayList;
+
 
 
 public class Main {
@@ -57,29 +60,29 @@ public class Main {
         ArrayList<Employees> listEmployess = new ArrayList<Employees>(); 
         ArrayList<Syndicate> listSyndicate = new ArrayList<Syndicate>(); 
 
+
         while (comando != 0){
             if (comando == 1) {
-                System.out.println("Adicionando empregado:"); 
+                System.out.println("Adicionando empregado..."); 
 
                 int idEmployee = generateId(listEmployess);
 
                 Employees employees = new Employees(idEmployee);
                 employees.add();
+                listEmployess.add(employees);
 
                 System.out.println("O empregado é...\n1 - Horista\n2 - Comissionado");
                 int type = input.nextInt();
                 
                 if (type == 1) { // horista
-                    employees = new Hourly(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId());
+                    System.out.println("Então preciso de mais algumas informações");
+                    Hourly hourly = new Hourly(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId());                    hourly.add();
                 } if (type == 2) {
-                    /*int comissioned;
-                    System.out.println("O empregado é comissionado?\n1 - Sim\n2 - Não");
-                    comissioned = input.nextInt();*/
+                    int comissioned;
+                    System.out.println("Valor da comissão:");
+                    comissioned = input.nextInt();
+                    Commissioned commissioned = new Commissioned(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId(), committee)
                 }
-                if(employees.getClass() == Hourly.class){
-                    System.out.println("Horista");
-                }
-                listEmployess.add(employees);
 
                 System.out.println("Ele irá fazer parte do Sindicato?\n1 - Sim\n2 - Não");
                 int isSyndicate = input.nextInt();
@@ -89,24 +92,30 @@ public class Main {
                     syndicate.add(idEmployee);
                     listSyndicate.add(syndicate);
                     // Syndicate add_syndicate = new Syndicate(employees.getName(), employees.getAdress(), employees.getMethodPayment(), employees.getId()); // como usar o array de empregados aqui?
-                } else {
-                    System.out.println("Okay.\n");
-                }
+                } 
+                System.out.println("Empregado adicionado com sucesso!");
             } else if (comando == 2) {
                 //remove();
                 System.out.println("Removendo empregado..."); 
             } else if (comando == 3) {
                 //
+                System.out.println("Cartão de ponto lançado!");
             } else if (comando == 4) {
                 //
+                System.out.println("Venda cadastrada!");
             } else if (comando == 5) {
                 //
+                System.out.println("Taxa de serviço adicionada!");
             } else if (comando == 6) {
                 //
+                System.out.println("Alteração feita!");
             } else if (comando == 7) {
                 //
+                System.out.println("Pagamentos efetuados com sucesso!");
             } else if (comando == 8) {
                 //
+                System.out.println("Ação desfeita. (undo)");
+                System.out.println("Ação refeita. (redo)");
             } else if (comando == 9) {
                 //
             } else {

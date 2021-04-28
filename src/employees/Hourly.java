@@ -1,25 +1,35 @@
 package src.employees;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.sql.Time;
 import src.TimeCard;
 
+
 public class Hourly extends Employees {
-    private ArrayList<TimeCard> list_timeCards = new ArrayList<TimeCard>(); // cria uma lista dinâmica e não um array fixo que vai armazenas o cartão de ponto de todos os horistas.
+    private ArrayList<TimeCard> listTimeCards = new ArrayList<TimeCard>(); // um horista tem varios cartões de ponto
 
     public Hourly(String name, String adress, String method, int id) {
         super(name, adress, method, id);// chama o construtor da classe pai.
     }
 
-    public void getTimeCards() {
-        int hoursWeekly = 0;
-        for (TimeCard timecard : list_timeCards) {
-            hoursWeekly += timecard.getHoursWorked();
-        }
-        System.out.println("Horas trabalhadas essa semana: " + hoursWeekly);
+    public void addTimeCard(TimeCard timeCard){
+        listTimeCards.add(timeCard);
     }
 
-    public void setTimeCards(int in, int out, String date) {
-        TimeCard timeCard = new TimeCard(in, out, date); // vai ser chamado quando eu for fazer a função que cria o cartão de ponto.
-        this.list_timeCards.add(timeCard); // adiciona o cartão de ponto a lista.
+    public void getHoursWeekly(TimeCard timeCard){
+        timeCard.setHoursWeekly(listTimeCards);
+    }
+
+    public void add(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Data: (DD/MM/AA)");
+        String date = input.nextLine();
+        System.out.println("Hora de entrada: (24h)");
+        int in = input.nextInt();
+        System.out.println("Hora de saida: (24h)");
+        int out = input.nextInt();
+        TimeCard timeCard = new TimeCard(in, out, date);
+        addTimeCard(timeCard);
     }
 }

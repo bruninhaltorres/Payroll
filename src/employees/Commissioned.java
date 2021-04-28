@@ -7,7 +7,7 @@ public class Commissioned extends Employees {
     private double committee;
     private ArrayList<Sale> list_sales = new ArrayList<Sale>(); // cria uma lista dinâmica e não um array fixo que vai armazenas o todas as vendas dos comissionados.
 
-    public Commissioned(String name, String adress, int method, int id, double committee) {
+    public Commissioned(String name, String adress, String method, int id, double committee) {
         super(name, adress, method, id);
         this.setCommittee(committee);
     }
@@ -24,6 +24,4 @@ public class Commissioned extends Employees {
     public void setCommittee(double committee) {
         this.committee = committee;
     }
-    
-
 }
