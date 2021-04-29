@@ -57,7 +57,7 @@ public class Main {
 
         int comando = input.nextInt();
 
-        ArrayList<Employees> listEmployess = new ArrayList<Employees>(); 
+        ArrayList<Employees> listEmployees = new ArrayList<Employees>(); 
         ArrayList<Syndicate> listSyndicate = new ArrayList<Syndicate>(); 
 
 
@@ -65,11 +65,11 @@ public class Main {
             if (comando == 1) {
                 System.out.println("Adicionando empregado..."); 
 
-                int idEmployee = generateId(listEmployess);
+                int idEmployee = generateId(listEmployees);
 
                 Employees employees = new Employees(idEmployee);
                 employees.add();
-                listEmployess.add(employees);
+                listEmployees.add(employees);
 
                 System.out.println("O empregado é...\n1 - Horista\n2 - Comissionado");
                 int type = input.nextInt();
@@ -95,8 +95,21 @@ public class Main {
                 } 
                 System.out.println("Empregado adicionado com sucesso!");
             } else if (comando == 2) {
-                //remove();
+                System.out.println("Qual o identificador do empregado que você deseja remover?");
+                int idRemove = input.nextInt();
+                
+                for (Employees employees : listEmployees) {
+                    if(employees.getId() == idRemove) {
+                        listEmployees.remove(employees);
+                    }
+                }
+                for (Syndicate syndicate : listSyndicate) { 
+                    if(syndicate.getIdSyndicate() == idRemove) {
+                        listSyndicate.remove(syndicate);
+                    }
+                }
                 System.out.println("Removendo empregado..."); 
+                System.out.println("Empregado removido!"); 
             } else if (comando == 3) {
                 //
                 System.out.println("Cartão de ponto lançado!");
