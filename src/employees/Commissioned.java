@@ -13,11 +13,6 @@ public class Commissioned extends Employees {
         this.setCommittee(committee);
     }
 
-    public void registerSale(String date, String nameItem, double value, int id_employee) {
-        Sale sale = new Sale(date, nameItem, value, id_employee);
-        this.list_sales.add(sale);
-    }
-
     public double getCommittee() {
         return this.committee; // this opicional, pois só tem uma variavel com o nome "committee" nessa função.
     }
