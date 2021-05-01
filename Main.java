@@ -255,23 +255,31 @@ public class Main {
                         int inOut = input.nextInt();
                         int pertence = 0;
                         if (inOut == 1) {
-                            for(Syndicate syndicate : listSyndicate){
-                                if(syndicate.getIdSyndicate() == idChange){
-                                    int idSyndicate = generateIdSyndicate(listSyndicate);
-                                    Syndicate syndicate2 = new Syndicate(idSyndicate);
-                                    syndicate2.add(idChange);
-                                    listSyndicate.add(syndicate2);
-                                    pertence ++;
-                                }
-                            }
+                            int idSyndicate = generateIdSyndicate(listSyndicate);
+                            Syndicate syndicate2 = new Syndicate(idSyndicate);
+                            syndicate2.add(idChange);
+                            listSyndicate.add(syndicate2);
                         } else {
                             for(Syndicate syndicate : listSyndicate){
                                 if(syndicate.getIdSyndicate() == idChange){
-                                    else {
-                                        listSyndicate.remove(syndicate);
-                                    }
-                                    pertence ++;
+                                    listSyndicate.remove(syndicate);
+                                    pertence = pertence + 1;
                                 }
+                            }
+                            if (pertence == 0) {
+                                System.out.println("Você não faz parte do sindicato.");
+                            }
+                        }
+                    } if(changeS == 2) {
+                        //2 - Mudar a sua identificação de usuario no sindicato\n3 - Alterar taxa sindical
+                        for(Syndicate syndicate : listSyndicate){
+                            if(syndicate.getIdSyndicate() == idChange){
+                                Syndicate aux = syndicate;
+                                int idSyndicate = generateIdSyndicate(listSyndicate); // gerando novo Id
+                                /*Syndicate syndicate = new Syndicate(idSyndicate);
+                                syndicate.add(idEmployee);
+                                listSyndicate.add(syndicate);
+                                listSyndicate.remove(syndicate);*/
                             }
                         }
                     }
