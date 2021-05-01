@@ -15,8 +15,16 @@ public class Employees {
         return name;
     }
 
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
     public String getAdress(){
         return adress;
+    }
+
+    public void setAdress(String setAdress) {
+        this.adress = setAdress;
     }
 
     public String getMethodPayment(){
@@ -36,8 +44,8 @@ public class Employees {
     }
 
     public Employees(String name, String adress, String method, int id) { // contrutor 2. Pode ter vários e o que vai mudar de um pro outro são os parâmetros.
-        this.name = name;
-        this.adress = adress;
+        this.setName(name);
+        this.setAdress(adress);
         this.id = id;
         this.methodPayment = method;
     }
