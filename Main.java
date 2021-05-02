@@ -53,6 +53,7 @@ public class Main {
     public static void invalid() {
         System.out.println("Acão inválida! Tente novamente.");
     }
+    
     public static void main(String[] args) {
         System.out.println("Esse é o sistema para folha de pagamento.");    
         Scanner input = new Scanner(System.in);
@@ -99,11 +100,12 @@ public class Main {
                 System.out.println("Id adicionado: " + idEmployee);
                 for (Employees employeesOk : listEmployees) {
                     System.out.println("Empregado " + employeesOk.getName() + " adicionado com sucesso!");
-                    /*if(employeesOk.getId() == idEmployee) {
-                        System.out.println("Empregado " + employeesOk.getName() + " adicionado com sucesso!");
-                    }*/
                 }
-            } if (comando == 2) {
+                for (Syndicate syndicateOk : listSyndicate) {
+                    System.out.println("Empregado " + syndicateOk.getIdSyndicate() + " adicionado com sucesso na lista do Sindicato!");
+                }
+
+            } else if (comando == 2) {
                 System.out.println("Qual o identificador do empregado que você deseja remover?");
                 int idRemove = input.nextInt();
                 Employees employeeRemove = null;
@@ -139,7 +141,7 @@ public class Main {
                 }
 
                 System.out.println("Empregado removido!"); 
-            } if (comando == 3) {
+            } else if (comando == 3) { // adicionando cartão de ponto
                 System.out.println("Qual seu numero de identificação?");
                 int idTimeCard = input.nextInt();
                 /*
@@ -160,7 +162,7 @@ public class Main {
                     }
                 }
                 System.out.println("Cartão de ponto lançado!");
-            } if (comando == 4) {
+            } else if (comando == 4) { // cadastrando venda
                 System.out.println("Qual seu numero de identificação?");
                 int idVendedor = input.nextInt();
                 /*
@@ -181,10 +183,18 @@ public class Main {
                     }
                 }
                 System.out.println("Venda cadastrada!");
-            } if (comando == 5) {
-                //
+            } else if (comando == 5) {
+                System.out.println("Qual seu número de identificação?");
+                int idChange = input.nextInt();
+                for(Syndicate syndicate : listSyndicate){
+                    if(syndicate.getIdSyndicate() == idChange){
+                        System.out.println("Qual a taxa cobrada pelo serviço? (R$)");
+                        double feeService = input.nextDouble();
+                        syndicate.setFeeService(feeService);
+                    }
+                }
                 System.out.println("Taxa de serviço adicionada!");
-            } if (comando == 6) {
+            } else if (comando == 6) {
                 System.out.println("O que você deseja alterar?");
                 System.out.println("1 - Nome");
                 System.out.println("2 - Endereço");
@@ -197,14 +207,20 @@ public class Main {
                 int idChange = input.nextInt();
 
                 if (change == 1) {
+                    System.out.println("Novo nome:");
+                    String newName = input.next();
                     for(Employees employees : listEmployees){
                         if(employees.getId() == idChange){
-                            System.out.println("Novo nome:");
-                            String newName = input.next();
                             employees.setName(newName);
                         }
                     }
-                } if (change == 2) {
+                    // TESTANDO:
+                    /*
+                    for(Employees employees : listEmployees){
+                        System.out.println("Data adicionada: " + timecard.getDate());
+                    }
+                    */
+                } else if (change == 2) {
                     for(Employees employees : listEmployees){
                         if(employees.getId() == idChange){
                             System.out.println("Novo endereço:");
@@ -212,7 +228,7 @@ public class Main {
                             employees.setName(newAdress);
                         }
                     }
-                } if(change == 3) {
+                } else if(change == 3) {
                     for(Employees employees : listEmployees){
                         if(employees.getId() == idChange){
                             System.out.println("Para qual tipo o empregado será alterado?\n1 - Horista\n2 - Comissionado\n3 - Assalariado");
@@ -235,7 +251,7 @@ public class Main {
                             }
                         }
                     }
-                } if (change == 4) {
+                } else if (change == 4) {
                     for(Employees employees : listEmployees){
                         if(employees.getId() == idChange){
                             System.out.println("Qual o novo método de pagamento?");
@@ -246,7 +262,7 @@ public class Main {
                             employees.payment_method(method);
                         }
                     }
-                } if (change == 5) {
+                } else if (change == 5) {
                     System.out.println("Mais sobre essa opção...");
                     System.out.println("1 - Você deseja entrar ou sair do sindicato\n2 - Mudar a sua identificação de usuario no sindicato\n3 - Alterar taxa sindical");
                     int changeS = input.nextInt();
@@ -271,32 +287,36 @@ public class Main {
                             }
                         }
                     } if(changeS == 2) {
-                        //2 - Mudar a sua identificação de usuario no sindicato\n3 - Alterar taxa sindical
+                        //2 - Mudar a sua identificação de usuario no sindicato
                         for(Syndicate syndicate : listSyndicate){
                             if(syndicate.getIdSyndicate() == idChange){
-                                Syndicate aux = syndicate;
-                                int idSyndicate = generateIdSyndicate(listSyndicate); // gerando novo Id
-                                /*Syndicate syndicate = new Syndicate(idSyndicate);
-                                syndicate.add(idEmployee);
-                                listSyndicate.add(syndicate);
-                                listSyndicate.remove(syndicate);*/
+                                int idSyndicate = generateIdSyndicate(listSyndicate); // gero novo Id
+                                syndicate.setIdSyndicate(idSyndicate);
+                            }
+                        }
+                    } if (changeS == 3) { // Alterar taxa sindical
+                        System.out.println("Qual a nova taxa sindical?");
+                        double newFeeSyndical = input.nextDouble();
+                        for(Syndicate syndicate : listSyndicate){
+                            if(syndicate.getIdSyndicate() == idChange){
+                                syndicate.setFeeSyndicate(newFeeSyndical);
                             }
                         }
                     }
                 } else {
-                    System.out.println("Acão inválida! Tente novamente.");
+                    invalid();
                 }
                 System.out.println("Alteração feita!");
-            } if (comando == 7) {
+            } else if (comando == 7) {
                 //
                 System.out.println("Pagamentos efetuados com sucesso!");
-            } if (comando == 8) {
+            } else if (comando == 8) {
                 //
                 System.out.println("Ação desfeita. (undo)");
                 System.out.println("Ação refeita. (redo)");
-            } if (comando == 9) {
+            } else if (comando == 9) {
                 //
-            } if (comando == 10) {
+            } else if (comando == 10) {
                 //
             } else {
                 invalid();

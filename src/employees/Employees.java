@@ -1,7 +1,15 @@
 package src.employees;
 
 import java.util.Scanner;
+
+import jdk.internal.util.xml.impl.Input;
+
 import java.lang.String;
+
+import src.payment.CheckHand;
+import src.payment.CheckMail;
+import src.payment.Deposit;
+import src.payment.Payment;
 
 public class Employees {
     private String name;
@@ -50,13 +58,25 @@ public class Employees {
         this.methodPayment = method;
     }
 
-    public void payment_method(int method) {
+    public void payment_method(int method, int id) {
+        Scanner input = new Scanner(System.in);
         if (method == 1) {
             this.methodPayment = "hand";
+            CheckHand check = new CheckHand(this.id, this.name);
         } else if (method ==  2) {
             this.methodPayment = "deposit";
+            System.out.println("Qual o nº da conta?");
+            int account = input.nextInt();
+            System.out.println("Número da agencia:");
+            int agency = input.nextInt();
+            System.out.println("Numero do banco:");
+            int bank = input.nextInt();
+            Deposit deposit = new Deposit(this.id, account, agency, bank);
         } else if (method == 3) {
             this.methodPayment = "mail";
+            System.out.println("Nome do remetente:");
+            String sender = input.next();
+            CheckMail ckeckM = new CheckMail(this.id, this.name, sender);
         } else {
             System.out.println("Metodo de pagamento inválido!\n");
         }
@@ -77,7 +97,7 @@ public class Employees {
         System.out.println("2 - Depósito bancário");
         System.out.println("3 - Cheque pelos correios");
         int method = input.nextInt();
-        payment_method(method);
+        payment_method(method, id);
         // ---- TIPO EMPREGADO ----
         
         System.out.println("Empregado adicionado com sucesso!");
