@@ -1,6 +1,7 @@
 import src.employees.Commissioned;
 import src.employees.Employees;
 import src.employees.Syndicate;
+import src.payment.Payroll;
 import src.employees.Hourly;
 import src.employees.Syndicate;
 
@@ -23,6 +24,7 @@ public class Main {
         }
         return id;
     }
+
     public static int generateIdSyndicate(ArrayList<Syndicate> syndicateList) {
         Random random = new Random();
         int id, qntEmployees = syndicateList.size(); // quantos empregados já foram cadastrados.
@@ -35,6 +37,7 @@ public class Main {
         }
         return id;
     }
+
     public static void actions(){
         System.out.println("Ações:"); // printar aos poucos?
         System.out.println("1 - Adicionar empregado"); 
@@ -308,7 +311,7 @@ public class Main {
                 }
                 System.out.println("Alteração feita!");
             } else if (comando == 7) {
-                //
+                Payroll payroll.payEmployees(listEmployees, payroll);
                 System.out.println("Pagamentos efetuados com sucesso!");
             } else if (comando == 8) {
                 //

@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ConversionDate",
+            "request": "launch",
+            "mainClass": "ConversionDate",
+            "projectName": "Projeto_De_Software_3f872dd8"
+        },
+        {
+            "type": "java",
+            "name": "Launch DataCalendar",
+            "request": "launch",
+            "mainClass": "DataCalendar",
+            "projectName": "Projeto_De_Software_3f872dd8"
+        },
+        {
+            "type": "java",
+            "name": "Launch DataCalendar",
+            "request": "launch",
+            "mainClass": "src.DataCalendar",
+            "projectName": "Projeto_De_Software_3f872dd8"
+        },
+        {
+            "type": "java",
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "Main",

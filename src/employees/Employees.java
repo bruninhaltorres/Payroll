@@ -1,15 +1,13 @@
 package src.employees;
 
 import java.util.Scanner;
-
-import jdk.internal.util.xml.impl.Input;
-
+import java.util.ArrayList;
 import java.lang.String;
 
 import src.payment.CheckHand;
 import src.payment.CheckMail;
 import src.payment.Deposit;
-import src.payment.Payment;
+import src.payment.Payroll;
 
 public class Employees {
     private String name;
@@ -56,6 +54,23 @@ public class Employees {
         this.setAdress(adress);
         this.id = id;
         this.methodPayment = method;
+    }
+
+    public void employeeInfos(){
+        System.out.println("Name: " + this.getName());
+        System.out.println("ID: " + this.getId());
+        System.out.println("Adress: " + getAdress());
+        System.out.println("Employee Type: " + getMethodPayment());
+        //return "Payment Day: " + getPaymentDay();
+    }
+
+    public void printEmployees(ArrayList<Employees> employeeList) {
+        System.out.println("Lista de todos os empregados:\n\n");
+        for(Employees employee : employeeList){
+            System.out.println("Empregado " + employee.getId() + " - ");
+            employee.employeeInfos();
+            System.out.println("\n\n");
+        }
     }
 
     public void payment_method(int method, int id) {
