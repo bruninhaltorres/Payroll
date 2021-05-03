@@ -13,7 +13,6 @@ public class Employees {
     private String name;
     private String adress;
     private String methodPayment;
-    private double salary;
     private int id;
 
 
@@ -37,9 +36,6 @@ public class Employees {
         return methodPayment;
     }
 
-    public double getSalary(){
-        return salary;
-    }
 
     public int getId(){
         return id;

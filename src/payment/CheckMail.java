@@ -1,13 +1,9 @@
 package src.payment;
 
 public class CheckMail extends Payment {
-    private int idEmployee;
     private String recipient; // Destinatario
     private String sender; // Remetente
 
-    public int getIdEmployee() {
-        return idEmployee;
-    }
 
     public String getSender() {
         return sender;
@@ -20,9 +16,6 @@ public class CheckMail extends Payment {
     }
     public void setRecipient(String recipient) {
         this.recipient = recipient;
-    }
-    public void setIdEmployee(int idEmployee) {
-        this.idEmployee = idEmployee;
     }
 
     public CheckMail(int id, String recipient, String sender){

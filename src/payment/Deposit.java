@@ -1,19 +1,12 @@
 package src.payment;
 
 public class Deposit extends Payment {
-    private int idEmployee;
     private int account;
     private int agency;
     private int bank;
 
     public int getAccount() {
         return account;
-    }
-    public int getIdEmployee() {
-        return idEmployee;
-    }
-    public void setIdEmployee(int idEmployee) {
-        this.idEmployee = idEmployee;
     }
     public int getBank() {
         return bank;

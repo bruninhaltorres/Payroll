@@ -63,8 +63,8 @@ public class Main {
         actions();
         int comando = input.nextInt();
         ArrayList<Employees> listEmployees = new ArrayList<Employees>(); 
-        ArrayList<Syndicate> listSyndicate = new ArrayList<Syndicate>(); 
-
+        ArrayList<Syndicate> listSyndicate = new ArrayList<Syndicate>();
+        Payroll payroll = new Payroll();
         while (comando != 0){
             if (comando == 1) {
                 System.out.println("Adicionando empregado..."); 
@@ -262,7 +262,7 @@ public class Main {
                             System.out.println("2 - Depósito bancário");
                             System.out.println("3 - Cheque pelos correios");
                             int method = input.nextInt();
-                            employees.payment_method(method);
+                            employees.payment_method(method, idChange);
                         }
                     }
                 } else if (change == 5) {
@@ -311,8 +311,8 @@ public class Main {
                 }
                 System.out.println("Alteração feita!");
             } else if (comando == 7) {
-                Payroll payroll.payEmployees(listEmployees, payroll);
-                System.out.println("Pagamentos efetuados com sucesso!");
+                Payroll.payEmployees(listEmployees, payroll);
+//                System.out.println("Pagamentos efetuados com sucesso!");
             } else if (comando == 8) {
                 //
                 System.out.println("Ação desfeita. (undo)");
